@@ -1,10 +1,27 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.kapt'
 }
+
+def keystorePropertiesFile = file("../../../.local/KStore/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+def gmapsPropertiesFile = file("../../../.local/KStore/gmaps_key.properties")
+def gmapsProperties = new Properties()
+gmapsProperties.load(new FileInputStream(gmapsPropertiesFile))
 
 android {
     compileSdk 32
+
+    signingConfigs {
+        releasesign {
+            storeFile file("../../../.local/KStore/pan_alexander.jks")
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyBAlias']
+            keyPassword keystoreProperties['keyBPassword']
+        }
+    }
 
     defaultConfig {
         applicationId "pan.alexander.finalmap"
@@ -12,14 +29,22 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [gmapsApiKey: gmapsProperties['key']]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.releasesign
         }
     }
     compileOptions {
@@ -36,13 +61,40 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
-    testImplementation 'junit:junit:4.13.2'
+    //AndroidX
+    implementation "androidx.core:core-ktx:$androidx_core"
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidx_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
+    implementation "androidx.legacy:legacy-support-v4:$androidx_legacy"
+    implementation "androidx.recyclerview:recyclerview:$androidx_recyclerview"
+
+    //Google material
+    implementation "com.google.android.material:material:$google_material"
+
+    //Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_android"
+
+    //Google maps
+    implementation "com.google.android.gms:play-services-maps:$google_maps"
+    implementation "com.google.android.gms:play-services-location:$services_location"
+
+    //DI
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
+
+    //Database
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Test
+    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

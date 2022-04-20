@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.details.DetailsFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/details_center_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/details_lat_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_8dp"
+        android:text="@string/marker_lat_title"
+        app:layout_constraintEnd_toEndOf="@+id/details_lat_value_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/details_lat_value_edit_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/details_lon_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_8dp"
+        android:text="@string/marker_lon_title"
+        app:layout_constraintEnd_toEndOf="@+id/details_lon_value_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/details_lon_value_edit_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/details_lat_value_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        android:padding="@dimen/padding_8dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/details_center_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_lat_title_text_view" />
+
+    <EditText
+        android:id="@+id/details_lon_value_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        android:padding="@dimen/padding_8dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/details_center_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/details_lon_title_text_view" />
+
+    <EditText
+        android:id="@+id/details_name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:ems="10"
+        android:hint="@string/marker_name_title"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_lat_value_edit_text" />
+
+    <EditText
+        android:id="@+id/details_description_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_16dp"
+        android:ems="10"
+        android:hint="@string/marker_description_title"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/details_name_edit_text" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/details_del_floating_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_36dp"
+        android:src="@drawable/ic_delete_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:maxImageSize="@dimen/size_36dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
