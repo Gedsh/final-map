@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_permission_dialog_rationale">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rationaleDialogTitleTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/access_to_location_dialog_title"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/rationaleDialogMessageTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/access_to_location_rationale_dialog_message"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rationaleDialogTitleTextView" />
+
+    <View
+        android:id="@+id/dialogDivider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="19dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rationaleDialogMessageTextView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rationaleDialogAllowWhenUsingButton"
+        style="@style/ImageButton.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/access_to_location_allow"
+        app:layout_constraintTop_toBottomOf="@+id/dialogDivider1" />
+
+    <View
+        android:id="@+id/dialogDivider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rationaleDialogAllowWhenUsingButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rationaleDialogAllowOnceButton"
+        style="@style/ImageButton.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/access_to_location_allow_once"
+        app:layout_constraintTop_toBottomOf="@+id/dialogDivider2" />
+
+    <View
+        android:id="@+id/dialogDivider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rationaleDialogAllowOnceButton" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rationaleDialogDoNotAllowButton"
+        style="@style/ImageButton.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/access_to_location_deny"
+        app:layout_constraintTop_toBottomOf="@+id/dialogDivider3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

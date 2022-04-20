@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/navigation_map">
+
+    <action
+        android:id="@+id/navigate_to_marker_details"
+        app:destination="@+id/navigation_details" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="pan.alexander.finalmap.ui.map.MapFragment"
+        android:label="@string/title_map"
+        tools:layout="@layout/map_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_markers"
+        android:name="pan.alexander.finalmap.ui.markers.MarkersFragment"
+        android:label="@string/title_markers"
+        tools:layout="@layout/markers_fragment" />
+
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="pan.alexander.finalmap.ui.details.DetailsFragment"
+        android:label="@string/title_details"
+        tools:layout="@layout/markers_fragment">
+        <argument
+            android:name="markerId"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+
+</navigation>

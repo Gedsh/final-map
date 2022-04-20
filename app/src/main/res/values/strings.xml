@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">FinalMap</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+    <!--  Bottom navigation  -->
+    <string name="title_map">Map</string>
+    <string name="title_markers">Markers</string>
+    <string name="title_details">Marker details</string>
+
+    <!--  Location Permissions Dialog  -->
+    <string name="access_to_location_dialog_title">Allow to access your location data while you are using the app?</string>
+    <string name="access_to_location_rationale_dialog_message">Geolocation will be used to determine your address.</string>
+    <string name="access_to_location_allow">When using the app</string>
+    <string name="access_to_location_allow_once">Allow once</string>
+    <string name="access_to_location_deny">Do not allow</string>
+
+    <!--  Item marker  -->
+    <string name="marker_lon_title">LON:</string>
+    <string name="marker_lat_title">LAT:</string>
+    <string name="marker_name_title">Name:</string>
+    <string name="marker_description_title">Description:</string>
 </resources>
